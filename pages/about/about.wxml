@@ -1,0 +1,28 @@
+<!--pages/about/about.wxml-->
+<view class="avatar-wrapper">
+  <view class="image">
+    <image  src="/images/icons/logo.png" style="width: 250rpx;height: 250rpx;"></image>
+  </view>
+  <view class="text">
+    <view>落花流水账</view>
+  </view>
+</view>
+
+<view class="line"></view>
+<view class="item">
+  <view class="title" >版本号</view>
+  <view class="detail2">
+    <text> V1.0.1</text>
+  </view>
+</view>
+
+<view class="line"></view>
+<view class="item">
+  <view class="title" >合作邮箱</view>
+  <view class="detail2">
+    <text> 526302990@qq.com</text>
+  </view>
+</view>
+<view class="line"></view>
+
+

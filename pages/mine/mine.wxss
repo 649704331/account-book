@@ -1,0 +1,68 @@
+.avatar-wrapper {
+  background: #fcec0a;
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-wrapper .image {
+  overflow:hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-wrapper .text {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.hr {
+  width: 100%;
+  height: 15rpx;
+  background-color: #f4f5f6;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  font-size: 15px;
+}
+
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  color: #888;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+.mine-container {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10%;
+  box-sizing: border-box;
+} 
+

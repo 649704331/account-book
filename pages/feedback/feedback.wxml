@@ -1,0 +1,34 @@
+<view style='background: #f8f8f8;'>
+  <view class = "hr"></view>
+  <view style='align-items: center; display: flex; justify-content: center;'><text style='font-size:40rpx'>新建反馈</text></view>
+</view>
+
+<view class="container">
+    <form bindsubmit="submitForm">
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{TopTips}}</view>
+      <view class="issues-panel">
+        <view class="issues-input">
+          <input placeholder="请输入反馈标题" name="title" value="{{title}}" />
+        </view>
+        <textarea class="issues-textarea" cursor-spacing="50" placeholder="请输入反馈内容" name="content" value="{{content}}"></textarea>
+      </view>
+
+      <block>
+        <text class="issues-label">选择图片（可选）</text>
+        <view class="issues-img-panel">
+          <view class="issues-photo-item add-photo" bindtap="uploadPic" wx:if="{{!isSrc}}"></view>
+          <view wx:if="{{isSrc}}" class="image_box">
+            <view class="picPre">
+              <image src="{{src}}" mode="aspectFit"></image>
+              <view bindtap="clearPic">
+                <image src="/image/取消.png" style="position: absolute;width: 35rpx;height: 35rpx;"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <text class="issues-remind ">您可以加入"1016638886"用户反馈QQ群进行即时反馈。</text>
+      <button class="submit-btn" loading="{{isLoading}}" hover-start-time="200" disabled="{{isdisabled}}" formType="submit">提交反馈</button>
+    </form>
+</view>

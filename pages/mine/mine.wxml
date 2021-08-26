@@ -1,0 +1,25 @@
+<view class="avatar-wrapper">
+  <view class="image">
+    <open-data type="userAvatarUrl" ></open-data>
+  </view>
+  <view class="text">
+    <open-data type="userNickName"></open-data>
+  </view>
+</view>
+<view class="hr"></view>
+<view class="item" bindtap='about' is-link>
+  <view class="title">了解一下</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap='feedback' is-link>
+  <view class="title">意见反馈</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+
+
+<view class="hr"></view>

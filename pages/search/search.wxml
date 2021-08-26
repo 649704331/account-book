@@ -1,0 +1,34 @@
+<view class='page_row' >
+    <view class="search">
+      <view class="df search_arr" >
+        <icon class="searchcion" size='20' type='search'></icon>
+        <input class="" placeholder="类别/备注/金额" value="{{searchValue}}"bindinput="searchValueInput"/>
+      </view>
+    </view>
+    <view class='sousuo'bindtap="sousuo">搜索</view>
+  </view>
+<view class='record_arr' name='record' > 共{{sum}}条记录</view>
+ <view wx:for="{{re}}" wx:key="Btime">
+
+ <view class='jieguo'>
+  
+ <view class='page_column'>
+  <view >类型：{{item.Blabel}}</view>
+  <view >金额：{{item.Bamount}}</view>
+
+  <view >日期：{{item.Btime}}</view>  </view>
+
+  </view>
+</view>
+<view wx:for="{{re2}}" wx:key="Btime">
+
+ <view class='jieguo'>
+  
+ <view class='page_column'>
+  <view >类型：{{item.Blabel}}</view>
+  <view >金额：{{item.Bamount}}</view>
+
+  <view >日期：{{item.Btime}}</view>  </view>
+
+  </view>
+</view>

@@ -1,0 +1,195 @@
+<view class="mainPageStyle">
+
+  <view class="bg" style="opacity:{{0.8}}">
+    <image class="bg" style=' background-image: url({{filePath}});'></image>
+  </view>
+  <!--页头-->
+  <view class="head">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="c2">
+        <text decode="{{true}}">&ensp;</text> {{array[index]}}
+        <view class="down-arrow"></view>
+      </view>
+    </picker>
+
+    <button bindtap="actionSheetTap" class="c3">
+      <text class="c4">··· </text>
+    </button>
+    <!-- <button bindtap="initBookData" class="update_button">
+    <image src="../../images/icons/update.png"></image>
+    刷新
+  </button> -->
+    <button bindtap="showBudget" class="add_budget">
+      <image src="../../images/icons/add_budget.png"></image>
+      预算
+    </button>
+    <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+      <block wx:for-items="{{actionSheetItems}}" wx:key=" ">
+        <action-sheet-item bindtap="bind{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+      </block>
+      <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+    </action-sheet>
+    <text>\n</text>
+    <text class="c1">{{abudget1}}</text>
+    <text>{{toMonth}}月预算结余\n\n</text>
+    <text decode="{{true}}">{{monthIncome}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{monthOutcome}}</text>
+    <text decode="{{true}}">{{toMonth}}月收入&emsp;&emsp;&emsp;&emsp;&emsp;{{toMonth}}月支出</text>
+  </view>
+  <!-- 添加预算的界面-->
+
+  <!-- 添加预算的界面-->
+
+  <!-- body 详细信息展示部分 -->
+  <scroll-view scroll-y='true' class="info_list">
+    <block wx:for-items="{{infoList}}" wx:key="{{item.id}}">
+      <view class="info_list_head">
+        <view class="info_list_head_date">{{item.date.year}}年{{item.date.month}}月{{item.date.day}}日 {{item.date.week}}</view>
+        <view class="info_list_head_data">收 {{item.totalRevenue}} / 支 {{item.totalExpenses}}</view>
+      </view>
+      <view class="info_list_body" wx:for-items="{{item.bills}}" wx:key="{{item}}">
+        <view class="info_list_body_data">
+          <view class="info_list_body_data_log" style='background-color: {{item.color}}'></view>
+          <view class="info_list_body_data_text" bindtap="changeNote" data-text="{{item.id}}">{{item.blabel}}</view>
+          <view class="info_list_body_data_data" bindtap="changeNote" data-text="{{item.id}}">{{item.bamount}}</view>
+          <image class="info_list_body_data_delete" src="../../images/icons/delete.png" bindtap='deleteData' data-text="{{item.id}}"></image>
+        </view>
+      </view>
+    </block>
+    <view class="none"></view>
+    <!-- 用来填充下拉框-->
+  </scroll-view>
+  <!-- <button style='margin-top: 30rpx'>按我按我</button> -->
+
+
+  <!-- foot -->
+  <view class="booking" wx:if="{{bookingShow}}">
+    <view class="booking_firstline">
+      <button class="booking_button" style="background: {{payOrGetBG}}" bindtap='changePayOrGet'>
+        <view>{{payOrGet}}</view>
+      </button>
+      <view class="booking_input">
+        <view style="float: left;">{{noteTitle}}</view>
+        <view style="float: right; color: rgb(255,100,100);">{{money}}</view>
+      </view>
+    </view>
+
+    <view class="button_list" wx:if="{{buttonHidden == false}}">
+      <view class="booking_choose_button" bindtap='note' wx:for="{{buttonText[buttonIndex]}}" data-text='{{buttonText[buttonIndex][index]}}' wx:key=" ">
+        <button style="background:{{buttonColorList[buttonIndex][index]}};"></button>
+        <view style='color: white;'>{{buttonText[buttonIndex][index]}}</view>
+      </view>
+      <ul wx:if="{{buttonIndex > 0}}">
+        <li bindtap='initButtons' data-text="{{1}}">食</li>
+        <li bindtap='initButtons' data-text="{{2}}">住</li>
+        <li bindtap='initButtons' data-text="{{3}}">购</li>
+        <li bindtap='initButtons' data-text="{{4}}">行</li>
+        <li bindtap='initButtons' data-text="{{5}}">乐</li>
+        <li bindtap='initButtons' data-text="{{6}}">育</li>
+        <li bindtap='initButtons' data-text="{{7}}">医</li>
+      </ul>
+    </view>
+
+    <view>
+      <view wx:if="{{!noteHidden}}">
+        <button class='button_mark' bindtap='showCalendar'>{{month + 1}}.{{date}}</button>
+        <button class='button_mark' bindtap='showPayType'>{{payType}}</button>
+        <button class='button_mark' bindtap='showMark' data-text="{{0}}">{{mark[0] == ""? "添加备注": mark[0]}}</button>
+        <button class='button_mark' bindtap='showMark' data-text="{{1}}">{{mark[1] == ""? "添加备注": mark[1]}}</button>
+      </view>
+      <view class='calculator' wx:if="{{!calculatorHidden}}">
+        <ul>
+          <li bindtap="addText" data-text='{{7}}'>7</li>
+          <li bindtap="addText" data-text='{{8}}'>8</li>
+          <li bindtap="addText" data-text='{{9}}'>9</li>
+          <li bindtap="calculate" data-text='{{"*"}}'>x</li>
+        </ul>
+        <ul>
+          <li bindtap="addText" data-text='{{4}}'>4</li>
+          <li bindtap="addText" data-text='{{5}}'>5</li>
+          <li bindtap="addText" data-text='{{6}}'>6</li>
+          <li bindtap="calculate" data-text='{{"+"}}'>+</li>
+        </ul>
+        <ul>
+          <li bindtap="addText" data-text='{{1}}'>1</li>
+          <li bindtap="addText" data-text='{{2}}'>2</li>
+          <li bindtap="addText" data-text='{{3}}'>3</li>
+          <li bindtap="calculate" data-text='{{"-"}}'>-</li>
+        </ul>
+        <ul>
+          <li bindtap="clearCalculator">C</li>
+          <li bindtap="addText" data-text='{{0}}'>0</li>
+          <li bindtap="addText" data-text='{{"."}}'>.</li>
+          <li style='background:red;' bindtap="record" data-text='{{""}}'>完成</li>
+        </ul>
+      </view>
+      <view class='calendar' wx:if="{{!calendarHidden}}">
+        <ul style='border_style: solid;  border_width: 1px 0px 1px 0px;'>
+          <li>日</li>
+          <li>一</li>
+          <li>二</li>
+          <li>三</li>
+          <li>四</li>
+          <li>五</li>
+          <li>六</li>
+        </ul>
+        <view id='{{date == calendarData[index] ? "is_today" : ""}}' wx:for="{{calendarData}}" wx:key=" " bindtap='chooseDate' data-text='{{calendarData[index]}}'>
+          <text>{{calendarData[index]}}</text>
+        </view>
+        <view id="ym_choose">
+          <view bindtap='lastYear'>{{"<"}}</view>
+        <text>{{year}}</text>
+        <view bindtap='nextYear'>{{">"}}</view>
+          <view bindtap='lastMonth'>{{"<"}}</view>
+        <text>{{month + 1}}</text>
+        <view bindtap='nextMonth'>{{">"}}</view>
+          <button bindtap='showCalculator'>确定</button>
+        </view>
+      </view>
+      <view class="other_mark" wx:if="{{!markTextHidden}}">
+        <form bindsubmit="addMark">
+          <textarea placeholder="请在此输入需要添加的备注" bindinput="changeMarkText" value='{{markText}}'></textarea>
+          <button form-type='submit'>确定</button>
+        </form>
+      </view>
+      <view class='pay_type' wx:if="{{!payTypeHidden}}">
+        <button bindtap='choosePayType' data-text="现金">
+          <view></view>
+          <text>现金</text>
+        </button>
+        <button bindtap='choosePayType' data-text="信用卡">
+          <view></view>
+          <text>信用卡</text>
+        </button>
+        <button bindtap='choosePayType' data-text="支付宝">
+          <view></view>
+          <text>支付宝</text>
+        </button>
+        <button bindtap='choosePayType' data-text="微信钱包">
+          <view></view>
+          <text>微信钱包</text>
+        </button>
+        <button bindtap='choosePayType' data-text="储蓄卡">
+          <view></view>
+          <text>储蓄卡</text>
+        </button>
+        <button bindtap='choosePayType' data-text="校园卡">
+          <view></view>
+          <text>校园卡</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <button class="nav_button" bindtap="showBooking">
+    <view>+</view>
+  </button>
+
+  <button class="hidden_booking" bindtap='hiddenBooking' wx:if="{{bookingShow || !budgetHidden}}"></button>
+
+  <view wx:if="{{!budgetHidden}}" class="budget">
+    <form bindsubmit="addBudget">
+      <textarea placeholder="请在此输入您本月的预算" bindinput="changeBudgetText" value='{{budgetText}}'></textarea>
+      <button form-type='submit'>确定</button>
+    </form>
+  </view>
+</view>

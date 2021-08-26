@@ -1,0 +1,86 @@
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+<!--分类-->
+<view hidden="{{currentTab!==0}}">
+
+  <!--日期选择-->
+  <view class="page">
+    <!-- 时间段 -->
+    <view class="picker_group">
+      <picker mode="date" value="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{startDate}}
+        </view>
+      </picker>
+      至
+      <picker mode="date" value="{{endDate}}" start="{{startDate}}" end="2050-01-01" bindchange="bindDateChange2">
+        <view class="picker">
+          {{endDate}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-->指环图
+  <-->
+    <view wx:if="{{showFlag}}" class='text-up'>
+      <text wx:if="{{showFlag}}" class='text-item'>请开始你的第一笔记账</text>
+    </view>
+    <canvas wx:if="{{!showFlag}}" canvas-id="ringCanvas" class="canvas" style="height:300px"></canvas>
+    <!--下方列表-->
+    <view class='container' wx:for="{{ringData}}">
+      <view class='text'>
+        <image src='../../images/icons/label.png' class='image{{index}}'></image>
+        <view class='text-left'>
+          <text>{{item.kind}}</text>
+          <text>{{item.countNum}}笔</text>
+        </view>
+        <text class='amount'>{{item.amount}}元</text>
+      </view>
+    </view>
+
+</view>
+<!--流水-->
+<view hidden="{{currentTab!==1}}">
+  <!--日期选择-->
+  <view class="page">
+    <!-- 时间段 -->
+    <view class="picker_group">
+      <picker mode="date" value="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{startDate}}
+        </view>
+      </picker>
+      至
+      <picker mode="date" value="{{endDate}}" start="{{startDate}}" end="2050-01-01" bindchange="bindDateChange2">
+        <view class="picker">
+          {{endDate}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view>
+    <canvas canvas-id="lineCanvas" class="canvas" style="height:300px"></canvas>
+  </view>
+
+  <!-- 流水表格 -->
+  <view class="table">
+    <block wx:for='{{fourArray}}' wx:key='*this' wx:for-item='oneArray'>
+      <!-- 注意嵌套的数组对象 -->
+      <view class="table-tr" wx:if='{{index<1}}'>
+        <block wx:for='{{oneArray}}' wx:key='id'>
+          <view class="table-th">{{item.name}}</view>
+        </block>
+      </view>
+      <view class="table-tr" wx:else>
+        <block wx:for='{{oneArray}}' wx:key='id'>
+          <view class="table-td">{{item.name}}</view>
+        </block>
+      </view>
+    </block>
+  </view>
+
+</view>

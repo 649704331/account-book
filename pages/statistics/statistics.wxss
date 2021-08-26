@@ -1,0 +1,239 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navbar {
+  flex: none;
+  display: flex;
+  background: rgb(11, 2, 43);
+  width: 100%;
+}
+
+.navbar .item {
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 60rpx;
+  color: #fff
+}
+
+.navbar .item.active {
+  color: rgb(11, 2, 43);
+  background: #fff;
+}
+
+.navbar .item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: rgb(211, 205, 233);
+}
+
+
+/*图表样式*/
+.canvas {
+  width: 100%;
+  height: 300px;
+  border-width: 1rpx;
+  border-color: rgb(223, 211, 211);
+  border-style: solid;
+}
+
+/*文字样式*/
+.text-up {
+  width: 100%;
+  height: 300px;
+  border-width: 1rpx;
+  border-color: rgb(223, 211, 211);
+  border-style: solid;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.text-up .text-item {
+  position: absolute;
+  right:200rpx;
+  margin-top: 300rpx;
+  color: rgba(189, 179, 179, 0.856);
+}
+
+/* border-radius: 98rpx;是控制按钮边变圆 */
+
+.goodbutton {
+  margin-left: 5px;
+  width: 80%;
+  height: 80rpx;
+  background-color: rgb(238, 214, 0);
+  color: white;
+  border-radius: 98rpx;
+  padding: 0rpx 0rpx;
+  background: bg_red;
+}
+
+/* 按下变颜色 */
+
+.hover {
+  background: rgb(241, 233, 183);
+}
+
+/**流水选择年月**/
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+/*文本布局*/
+
+.text-border {
+  border-width: 1rpx;
+  border-color: rgb(223, 211, 211);
+  border-style: solid;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  border-width: 1rpx;
+  border-color: rgb(223, 211, 211);
+  border-style: solid;
+  padding: 10rpx;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-left {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+.text-left text{
+  margin-left: 50rpx;
+}
+
+.text .amount{
+  margin-top: 35rpx;
+  position: absolute;
+  right:10rpx;
+}
+
+.image0 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #e2e2e0da;
+  border-radius: 100rpx;
+  background-color: #b3ff00;
+}
+
+.image1 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #e2e2e0da;
+  border-radius: 100rpx;
+  background-color: #4698f7;
+}
+
+.image2 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #e2e2e0da;
+  border-radius: 100rpx;
+  background-color: #FF2D2D;
+}
+
+.image3 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #e2e2e0da;
+  border-radius: 100rpx;
+  background-color: #f80;
+}
+
+.image4 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #e2e2e0da;
+  border-radius: 100rpx;
+  background-color: #FFD700;
+}
+
+.image5 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #e2e2e0da;
+  border-radius: 100rpx;
+  background-color: #8E388E;
+}
+
+.image6 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #e2e2e0da;
+  border-radius: 100rpx;
+  background-color: #FF34B3;
+}
+
+/* 日期选择 */
+
+.picker_group {
+height: 85rpx;
+line-height: 85rpx;
+justify-content: center;
+display: flex;
+align-items: center;
+font-size: 30rpx;
+color: #888;
+border-bottom: 1rpx solid #efefef;
+}
+
+.picker_group picker {
+/* background-color: yellow; *//*color: #64bff1; */
+color: #ffd700;
+height: 55rpx;
+line-height: 55rpx;
+margin: 0 2%;
+padding: 0 2%;
+/*border: 1rpx solid #64bff1;*/
+border: 1rpx solid #ffd700;
+border-radius: 30rpx;
+}
+
+.table {
+  display: table;
+  width: 100%;
+  /* border-collapse 属性设置表格的边框是否被合并为一个单一的边框，解决相邻单元格边框未合并导致有些边框变粗的视觉效果 */
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+
+.table-tr {
+  display: table-row;
+  width: 100%;
+  height: 200rpx;
+}
+
+.table-th {
+  display: table-cell;
+  font-weight: bold;
+  border: 1px solid white;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgb(245, 245, 245);
+}
+
+.table-td {
+  display: table-cell;
+  border: 1px solid rgb(255, 255, 255);
+  text-align: center;
+  vertical-align: middle;
+}

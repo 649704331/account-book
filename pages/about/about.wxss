@@ -1,0 +1,55 @@
+/* pages/about/about.wxss */
+.avatar-wrapper {
+  background: #ffffff;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-wrapper .image {
+  overflow:hidden;
+  display: block;
+  width: 250rpx;
+  height: 250rpx;
+  margin: 0rpx;
+  margin-top: 50rpx;
+  border-radius: 60%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.avatar-wrapper .text {
+  margin: 50rpx;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  font-size: 15px;
+}
+
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  color: #888;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+

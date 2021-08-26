@@ -1,0 +1,545 @@
+
+.mainPageStyle{
+  display: flex;
+  flex-direction:column;
+}
+
+/** head **/
+
+.bg {
+  background: #ff0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 50vh; */
+  background-size: cover;
+  z-index: -1;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px 0px 20px 0px;
+  align-items: center;
+  justify-content: space-between;
+  height: 350rpx;
+}
+
+/**头部整体样式**/
+
+.c1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: x-large;
+}
+
+/**预算结余字体样式**/
+
+.c2 {
+  border-style: solid;
+  border-color: #999;
+  border-width: 3rpx;
+  border-radius: 10%;
+  background: white;
+}
+
+/**选择器样式**/
+
+.c3 {
+  position: fixed;
+  right: 40rpx;
+  top: 15rpx;
+  background-color: transparent;
+}
+
+/**控制button与背景一致**/
+
+.c3::after {
+  border: none;
+}
+
+.update_button {
+  line-height: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 5rpx;
+  background-color: transparent;
+}
+
+.update_button image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.update_button::after {
+  border: none;
+}
+
+.add_budget {
+  line-height: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 35rpx;
+  background-color: transparent;
+}
+
+.add_budget image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.add_budget::after {
+  border: none;
+}
+
+.c4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: medium;
+}
+
+/**右上角大小样式**/
+
+.down-arrow {
+  display: inline-block;
+  position: relative;
+  width: 40rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.down-arrow::after {
+  display: inline-block;
+  content: " ";
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 0 2rpx 2rpx 0;
+  border-color: #999;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform-origin: center;
+  transition: transform 0.3s;
+  position: absolute;
+  top: 50%;
+  right: 10rpx;
+  margin-top: -10rpx;
+}
+
+/* body */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.info_list {
+  /* position: absolute;
+  top: 425rpx;
+  bottom: 0rpx; */
+  background-color: whitesmoke;
+  height: 60vh;
+  width: 100%;
+  padding-bottom: 0vh;
+}
+
+.none {
+  height: 125rpx;
+  background: rgba(0, 0, 0, 0);
+}
+
+.info_list_head {
+  height: 80rpx;
+  border-bottom: 5rpx solid rgb(139, 137, 137);
+  display: flex;
+  align-items: center;
+}
+
+.info_list_head_date {
+  width: 50%;
+  margin-left: 10rpx;
+  text-align: left;
+  font-size: 80%;
+}
+
+.info_list_head_data {
+  width: 50%;
+  margin-right: 10rpx;
+  text-align: right;
+  font-size: 80%;
+}
+
+.info_list_body {
+  display: flex;
+  flex-direction: column;
+}
+
+.info_list_body_data {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(139, 137, 137);
+}
+
+.info_list_body_data_log {
+  height: 90rpx;
+  width: 90rpx;
+  margin-left: 25rpx;
+  border-radius: 50%;
+  background-color: green;
+}
+
+.info_list_body_data_text {
+  width: 350rpx;
+  padding-left: 40rpx;
+  text-align: left;
+}
+
+.info_list_body_data_data {
+  width: 250rpx;
+  padding-right: 20rpx;
+  text-align: right;
+}
+
+.info_list_body_data_delete {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+
+/* foot */
+
+/*.nav{
+  background: #2b22de;
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  text-align: center;
+  z-index: 1;
+}
+.nav_child{
+  display: inline-block;
+  margin-top: 17px;
+  margin-bottom: 2px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  font-size: 40rpx;
+}*/
+
+.nav_button {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+  bottom: 0vh;
+  background-color: #ff0;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 5vh;
+  line-height: 10vh;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  z-index: 2;
+}
+
+.nav_button view {
+  margin-top: -2px;
+  font-size: 5vh;
+  font-weight: 700;
+  float: center;
+}
+
+.booking {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  background: #70c;
+  z-index: 3;
+}
+
+.booking li {
+  display: inline-block;
+}
+
+.booking_button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  display: inline-block;
+}
+
+.booking_input {
+  position: absolute;
+  left: 75px;
+  right: 10px;
+  margin: 3px;
+  height: 44px;
+  background: white;
+  display: inline-block;
+  border-radius: 25px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.booking_input view {
+  font-weight: 700;
+  display: inline-block;
+  line-height: 44px;
+}
+
+.button_list {
+  padding: 0 3vw;
+}
+
+.button_list view {
+  display: inline-block;
+  text-align: center;
+  width: 160rpx;
+  font-size: 30rpx;
+}
+
+.booking_choose_button button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+}
+
+.booking_firstline {
+  border-bottom-style: solid;
+  border-color: white;
+  border-bottom-width: 1px;
+  margin: 5px 3vw;
+}
+
+.button_list ul {
+  display: block;
+}
+
+.button_list ul li {
+  text-align: center;
+  line-height: 40px;
+  color: white;
+  font-weight: 700;
+  background: #a0f;
+  width: 40px;
+  height: 40px;
+  margin: 1px;
+  margin-bottom: 0px;
+}
+
+.button_mark {
+  padding: 0px;
+  color: white;
+  background: #a0f;
+  font-size: 75%;
+  font-weight: 700;
+  width: 23vw;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 18px;
+  margin: 3px;
+  display: inline-block;
+}
+
+.calculator  ul {
+  display: block;
+  width: 100vw;
+  height: 30px;
+  text-align: center;
+  line-height: 28px;
+}
+
+.calculator  ul li {
+  display: inline-block;
+  width: 24%;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.calendar {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  border-top-color: white;
+  width: 100vw;
+}
+
+.calendar ul {
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.calendar ul li {
+  font-weight: 700;
+  width: 14%;
+}
+
+.calendar view {
+  border-radius: 15px;
+  height: 30px;
+  width: 14%;
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+}
+
+.calendar view text {
+  color: white;
+}
+
+#is_today {
+  background: yellow;
+}
+
+#is_today text {
+  color: black;
+}
+
+.pay_type button {
+  display: inline-block;
+  background: #a0f;
+  margin-left: 5vw;
+  width: 40vw;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  border-radius: 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+.pay_type button view {
+  margin-top: 10px;
+  margin-left: 3rpx;
+  margin-right: 5px;
+  display: inline-block;
+  background: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+}
+
+.pay_type button text {
+  float: right;
+  position: flex;
+  font-size: 75%;
+  font-weight: 700;
+}
+
+#ym_choose {
+  border-radius: 0;
+  background: #a0f;
+  text-align: left;
+  width: 100vw;
+  height: 25px;
+  line-height: 25px;
+}
+
+#ym_choose view {
+  margin-left: 10px;
+  color: white;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+#ym_choose text {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+#ym_choose button {
+  border-radius: 0;
+  float: right;
+  margin-left: 10px;
+  color: white;
+  background: red;
+  width: 70px;
+  height: 25px;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.other_mark textarea {
+  border-radius: 9px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  display: inline-block;
+  background: #ccc;
+  height: 80px;
+  width: 60vw;
+  margin: 0 3vw;
+}
+
+.other_mark button {
+  font-weight: 700;
+  display: inline-block;
+  background: red;
+  height: 50px;
+  width: 26vw;
+  margin: 0 3vw;
+}
+
+.hidden_booking {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.budget {
+  background: rgba(255, 240, 245, 0.9);
+  position: absolute;
+  top: 0;
+  height: 150rpx;
+  width: 100vw;
+  z-index: 3;
+  padding: 50rpx 0;
+}
+
+.budget textarea {
+  border-radius: 9px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  display: inline-block;
+  background: #ccc;
+  height: 50px;
+  width: 60vw;
+  margin: 0 3vw;
+}
+
+.budget button {
+  font-weight: 700;
+  display: inline-block;
+  background: red;
+  height: 50px;
+  width: 26vw;
+  margin: 0 3vw;
+}
